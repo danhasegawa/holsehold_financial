@@ -3,31 +3,25 @@ package br.com.challenge.household_financial.controller.dto;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import br.com.challenge.household_financial.modelo.Category;
 import br.com.challenge.household_financial.modelo.Expense;
 
-
 public class ExpenseRequestDto {
 
 	@NotNull
-	@NotEmpty
 	private Long id;
 
 	@NotNull
-	@NotEmpty
 	private String description;
 
 	@NotNull
-	@NotEmpty
 	private BigDecimal value;
 
 	@NotNull
-	@NotEmpty
 	private LocalDate date;
-	
+
 	private Category category;
 
 	public Long getId() {
@@ -45,22 +39,46 @@ public class ExpenseRequestDto {
 	public LocalDate getDate() {
 		return date;
 	}
-	
+
 	public Category getCategory() {
 		return category;
 	}
-	
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public void setValue(BigDecimal value) {
+		this.value = value;
+	}
+
+	public void setDate(LocalDate date) {
+		this.date = date;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
 	public Expense update(Expense expense) {
 
 		expense.setDescription(description);
 		expense.setValue(value);
 		expense.setDate(date);
-		expense.setCategory(category);
+		if (category == null) {
+			expense.setCategory(Category.OTHER);
+		} else {
+			expense.setCategory(this.category);
+		}
 		return expense;
 	}
-	
+
 	public Expense newEntity() {
-		return Expense.newExpense(description, value,date, category);
+		return Expense.newExpense(description, value, date, category);
 	}
 
 }

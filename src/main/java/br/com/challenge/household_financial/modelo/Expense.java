@@ -58,7 +58,7 @@ public class Expense {
 	public Category getCategory() {
 		return category;
 	}
-	
+
 	public void setCategory(Category category) {
 		this.category = category;
 	}
@@ -67,7 +67,7 @@ public class Expense {
 		Expense expense = new Expense();
 		expense.description = description;
 		expense.value = value;
-		expense.category = category != null ? category : Category.OTHER;
+		expense.category = category; 
 		return expense;
 
 	}

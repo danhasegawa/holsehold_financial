@@ -42,7 +42,7 @@ public class IncomeController {
 
 	@PostMapping
 	@Transactional
-	public ResponseEntity<String> enroll(@PathVariable Long id, @RequestBody @Valid IncomeRequestDto request,
+	public ResponseEntity<String> enroll(@RequestBody @Valid IncomeRequestDto request,
 			UriComponentsBuilder uriBuilder) {
 		Income entity = request.update(new Income());
 
