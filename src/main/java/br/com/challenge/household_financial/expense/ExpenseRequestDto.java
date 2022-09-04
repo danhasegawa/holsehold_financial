@@ -1,12 +1,11 @@
-package br.com.challenge.household_financial.controller.dto;
+package br.com.challenge.household_financial.expense;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import javax.validation.constraints.NotNull;
 
-import br.com.challenge.household_financial.modelo.Category;
-import br.com.challenge.household_financial.modelo.Expense;
+import br.com.challenge.household_financial.category.Category;
 
 public class ExpenseRequestDto {
 

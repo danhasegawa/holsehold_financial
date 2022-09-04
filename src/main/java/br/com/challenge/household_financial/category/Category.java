@@ -1,4 +1,4 @@
-package br.com.challenge.household_financial.modelo;
+package br.com.challenge.household_financial.category;
 
 public enum Category {
 	

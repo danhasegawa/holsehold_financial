@@ -1,4 +1,4 @@
-package br.com.challenge.household_financial.controller;
+package br.com.challenge.household_financial.income;
 
 import java.net.URI;
 import java.time.LocalDate;
@@ -20,11 +20,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
-
-import br.com.challenge.household_financial.controller.dto.IncomeRequestDto;
-import br.com.challenge.household_financial.controller.dto.IncomeResponseDto;
-import br.com.challenge.household_financial.modelo.Income;
-import br.com.challenge.household_financial.repository.IncomeRepository;
 
 @RestController
 @RequestMapping("/income")

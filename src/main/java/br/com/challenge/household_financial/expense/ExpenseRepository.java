@@ -1,9 +1,7 @@
-package br.com.challenge.household_financial.repository;
+package br.com.challenge.household_financial.expense;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-
-import br.com.challenge.household_financial.modelo.Expense;
 
 public interface ExpenseRepository extends JpaRepository<Expense, Long> {
 

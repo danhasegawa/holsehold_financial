@@ -1,11 +1,9 @@
-package br.com.challenge.household_financial.controller.dto;
+package br.com.challenge.household_financial.income;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import javax.validation.constraints.NotNull;
-
-import br.com.challenge.household_financial.modelo.Income;
 
 public class IncomeRequestDto {
 

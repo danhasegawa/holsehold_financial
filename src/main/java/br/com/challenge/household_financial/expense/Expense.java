@@ -1,4 +1,4 @@
-package br.com.challenge.household_financial.modelo;
+package br.com.challenge.household_financial.expense;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -9,6 +9,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import br.com.challenge.household_financial.category.Category;
 
 @Entity
 public class Expense {
