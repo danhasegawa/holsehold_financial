@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 
+import org.apache.logging.log4j.util.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -27,13 +29,6 @@ public class IncomeController {
 
 	@Autowired
 	private IncomeRepository incomeRepository;
-
-	@GetMapping
-	public ResponseEntity<List<IncomeResponseDto>> callAll() {
-		List<IncomeResponseDto> list = incomeRepository.findAll().stream().map(i -> new IncomeResponseDto(i))
-				.collect(Collectors.toList());
-		return ResponseEntity.ok(list);
-	}
 
 	@PostMapping
 	@Transactional
@@ -51,13 +46,38 @@ public class IncomeController {
 
 	}
 
+	@GetMapping
+	public ResponseEntity<List<IncomeResponseDto>> incomeDetail(@RequestParam(required = false) String description) {
+
+		List<IncomeResponseDto> list = (Strings.isBlank(description) ? incomeRepository.findAll()
+				: incomeRepository.findByDescription(description)).stream().map(i -> new IncomeResponseDto(i))
+				.collect(Collectors.toList());
+
+		return ResponseEntity.ok(list);
+	}
+
 	@GetMapping("/{id}")
-	public ResponseEntity<IncomeResponseDto> detail(@PathVariable Long id) {
+	public ResponseEntity<IncomeResponseDto> incomeDetail(@PathVariable Long id) {
 		Optional<Income> incomeOptional = incomeRepository.findById(id);
 		if (incomeOptional.isPresent()) {
 			return ResponseEntity.ok(new IncomeResponseDto(incomeOptional.get()));
 		}
 		return ResponseEntity.notFound().build();
+	}
+
+	@GetMapping("/{year}/{month}")
+	public ResponseEntity<List<IncomeResponseDto>> incomeYearAndMonth(@PathVariable Integer year,
+			@PathVariable Integer month) {
+		if (year == null || month == null) {
+			return ResponseEntity.badRequest().build();
+		} else if (year < 1 || month > 13) {
+			return ResponseEntity.badRequest().build();
+		} else {
+			List<IncomeResponseDto> list = incomeRepository.findByYearAndMonth(year, month).stream()
+					.map(i -> new IncomeResponseDto(i)).collect(Collectors.toList());
+			return ResponseEntity.ok(list);
+		}
+
 	}
 
 	@PutMapping("/{id}")
