@@ -74,7 +74,7 @@ public class IncomeControllerTest {
 		income.setDate(LocalDate.of(2022, 9, 1));
 
 		var income2 = new Income();
-		income2.setDescription("salario");
+		income2.setDescription("salary");
 		income2.setValue(new BigDecimal(8000));
 		income2.setDate(LocalDate.of(2022, 9, 10));
 

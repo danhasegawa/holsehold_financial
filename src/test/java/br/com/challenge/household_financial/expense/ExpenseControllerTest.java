@@ -44,14 +44,14 @@ class ExpenseControllerTest {
 	void shouldAddNewExpense() throws Exception {
 		var expense = new Expense();
 		expense.setId(1l);
-		expense.setDescription("Troca oleo");
+		expense.setDescription("Oil Change");
 		expense.setValue(new BigDecimal(250));
 		expense.setDate(LocalDate.of(2022, 9, 10));
 		expense.setCategory(Category.UNEXPECTED);
 		
 		var dto = new ExpenseRequestDto();
 		dto.setId(1l);
-		dto.setDescription("Troca oleo");
+		dto.setDescription("Oil Change");
 		dto.setValue(new BigDecimal(250));
 		dto.setDate(LocalDate.of(2022, 9, 10));
 		dto.setCategory(Category.UNEXPECTED);
@@ -73,14 +73,14 @@ class ExpenseControllerTest {
 	void shouldReturnAllExpense() throws Exception{
 		var expense = new Expense();
 		expense.setId(1l);
-		expense.setDescription("Troca oleo");
+		expense.setDescription("Oil Change");
 		expense.setValue(new BigDecimal(250));
 		expense.setDate(LocalDate.of(2022, 9, 10));
 		expense.setCategory(Category.UNEXPECTED);
 		
 		var expense2 = new Expense();
 		expense2.setId(1l);
-		expense2.setDescription("jantar");
+		expense2.setDescription("Dinner");
 		expense2.setValue(new BigDecimal(80));
 		expense2.setDate(LocalDate.of(2022, 9, 11));
 		expense2.setCategory(Category.FOOD);
@@ -97,14 +97,14 @@ class ExpenseControllerTest {
 	void shouldReturnBadRequestForDuplicateExpenseWhitSameDescriptionAndDate() throws Exception{
 		var expense = new Expense();
 		expense.setId(1l);
-		expense.setDescription("Troca oleo");
+		expense.setDescription("Oil Change");
 		expense.setValue(new BigDecimal(250));
 		expense.setDate(LocalDate.of(2022, 9, 10));
 		expense.setCategory(Category.UNEXPECTED);
 		
 		var expense2 = new Expense();
 		expense2.setId(1l);
-		expense2.setDescription("Troca oleo");
+		expense2.setDescription("Oil Change");
 		expense2.setValue(new BigDecimal(50));
 		expense2.setDate(LocalDate.of(2022, 9, 10));
 		expense2.setCategory(Category.UNEXPECTED);
@@ -120,7 +120,7 @@ class ExpenseControllerTest {
 	void shouldReturnOkForDetailingExistingExpense() throws Exception{
 		var expense = new Expense();
 		expense.setId(1l);
-		expense.setDescription("Troca oleo");
+		expense.setDescription("Oil Change");
 		expense.setValue(new BigDecimal(250));
 		expense.setDate(LocalDate.of(2022, 9, 10));
 		expense.setCategory(Category.UNEXPECTED);
@@ -136,7 +136,7 @@ class ExpenseControllerTest {
 	void shouldReturnSearchByYearAndMonty() throws Exception{
 		var expense = new Expense();
 		expense.setId(1l);
-		expense.setDescription("Troca oleo");
+		expense.setDescription("Oil Change");
 		expense.setValue(new BigDecimal(250));
 		expense.setDate(LocalDate.of(2022, 9, 10));
 		expense.setCategory(Category.UNEXPECTED);
@@ -152,7 +152,7 @@ class ExpenseControllerTest {
 	void shouldReturnOkWhenDeletingExistingExpense() throws Exception{
 		var expense = new Expense();
 		expense.setId(1l);
-		expense.setDescription("Troca oleo");
+		expense.setDescription("Oil Change");
 		expense.setValue(new BigDecimal(250));
 		expense.setDate(LocalDate.of(2022, 9, 10));
 		expense.setCategory(Category.UNEXPECTED);
