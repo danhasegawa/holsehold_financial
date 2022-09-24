@@ -52,32 +52,40 @@ public class IncomeRepositoryTest {
 
 		List<Income> incomeByDescription = incomeRepository.findByDescription("Return");
 		Assert.assertNotNull(incomeByDescription);
-		Assert.assertEquals(1, 1);
+		Assert.assertEquals(1, incomeByDescription.size());
 		;
 
 	}
+
 	@Test
+	@SuppressWarnings("unused")
 	public void shouldReturnOkFindByYearAndMonth() {
-		Income september = testEntityManager.persist(Income.newIncome("Salary", new BigDecimal(8000), LocalDate.of(2022, 9, 5)));
-		Income august = testEntityManager.persist(Income.newIncome("New Income",new BigDecimal(1000), LocalDate.of(2022, 8, 15)));
-		
+		Income september = testEntityManager
+				.persist(Income.newIncome("Salary", new BigDecimal(8000), LocalDate.of(2022, 9, 5)));
+		Income august = testEntityManager
+				.persist(Income.newIncome("New Income", new BigDecimal(1000), LocalDate.of(2022, 7, 15)));
+
 		List<Income> income = incomeRepository.findByYearAndMonth(2022, 9);
 		Assert.assertNotNull(income);
-		Assert.assertNotEquals(september, august);
+		Assert.assertEquals(1, income.size());
 	}
-	
-	@SuppressWarnings("unused")
+
 	@Test
+	@SuppressWarnings("unused")
 	public void shouldRetunTheSumOfIncomesFromYearAndMonth() {
-		var income1 = testEntityManager.persist(Income.newIncome("Salary", new BigDecimal(8000), LocalDate.of(2022, 9, 5)));
-		var income2 = testEntityManager.persist(Income.newIncome("BitCoin",new BigDecimal(10000), LocalDate.of(2022, 8, 15)));
-		var income3 = testEntityManager.persist(Income.newIncome("Bonus", new BigDecimal(800), LocalDate.of(2022, 9, 14)));
-		var income4 = testEntityManager.persist(Income.newIncome("New Income",new BigDecimal(1000), LocalDate.of(2022, 9, 15)));
-		
+		var income1 = testEntityManager
+				.persist(Income.newIncome("Salary", new BigDecimal(8000), LocalDate.of(2022, 9, 5)));
+		var income2 = testEntityManager
+				.persist(Income.newIncome("BitCoin", new BigDecimal(10000), LocalDate.of(2022, 8, 15)));
+		var income3 = testEntityManager
+				.persist(Income.newIncome("Bonus", new BigDecimal(800), LocalDate.of(2022, 9, 14)));
+		var income4 = testEntityManager
+				.persist(Income.newIncome("New Income", new BigDecimal(1000), LocalDate.of(2022, 9, 15)));
+
 		BigDecimal sum = incomeRepository.sumValuesByYearAndMonth(2022, 9);
 		Assert.assertNotNull(sum);
 		Assert.assertEquals(9800, 9800);
-		
+
 		BigDecimal sum2 = incomeRepository.sumValuesByYearAndMonth(2021, 9);
 		Assert.assertNull(sum2);
 	}

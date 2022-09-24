@@ -20,7 +20,7 @@ public class Expense {
 	private Long id;
 	private String description;
 	private BigDecimal value;
-	private LocalDate date;
+	private LocalDate date = LocalDate.now();
 
 	@Enumerated(EnumType.STRING)
 	private Category category;
@@ -69,6 +69,7 @@ public class Expense {
 		Expense expense = new Expense();
 		expense.description = description;
 		expense.value = value;
+		expense.date = date;
 		expense.category = category; 
 		return expense;
 

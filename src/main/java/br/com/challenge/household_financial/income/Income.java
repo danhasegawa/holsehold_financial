@@ -22,6 +22,7 @@ public class Income {
 		Income income = new Income();
 		income.description = description;
 		income.value = value;
+		income.date = date;
 		return income;
 	}
 	
