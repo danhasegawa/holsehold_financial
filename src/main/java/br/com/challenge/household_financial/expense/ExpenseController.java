@@ -93,7 +93,7 @@ public class ExpenseController {
 
 	@DeleteMapping("/{id}")
 	@Transactional
-	public ResponseEntity<String> delete(@PathVariable Long id) {
+	public ResponseEntity<?> delete(@PathVariable Long id) {
 
 		Optional<Expense> expenseOptional = expenseRepository.findById(id);
 		if (expenseOptional.isPresent()) {
