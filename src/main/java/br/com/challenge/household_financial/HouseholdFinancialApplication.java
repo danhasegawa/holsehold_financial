@@ -3,8 +3,10 @@ package br.com.challenge.household_financial;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+@SpringBootApplication
+@EnableSwagger2
 public class HouseholdFinancialApplication {
 
 	public static void main(String[] args) {
