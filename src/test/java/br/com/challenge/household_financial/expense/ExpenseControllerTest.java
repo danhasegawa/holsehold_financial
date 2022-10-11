@@ -17,6 +17,8 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -29,7 +31,9 @@ import br.com.challenge.household_financial.category.Category;
 @RunWith(SpringRunner.class)
 @WebMvcTest(ExpenseController.class)
 @AutoConfigureMockMvc
-class ExpenseControllerTest {
+@TestPropertySource(locations = "classpath:application-test.properties")
+@ActiveProfiles("test")
+public class ExpenseControllerTest {
 
 	@Autowired
 	private MockMvc mockMvc;
@@ -41,7 +45,7 @@ class ExpenseControllerTest {
 	ExpenseRepository expenseRepository;
 	
 	@Test
-	void shouldAddNewExpense() throws Exception {
+	public void shouldAddNewExpense() throws Exception {
 		var expense = new Expense();
 		expense.setId(1l);
 		expense.setDescription("Oil Change");
@@ -70,7 +74,7 @@ class ExpenseControllerTest {
 	}
 	
 	@Test
-	void shouldReturnAllExpense() throws Exception{
+	public void shouldReturnAllExpense() throws Exception{
 		var expense = new Expense();
 		expense.setId(1l);
 		expense.setDescription("Oil Change");
@@ -94,7 +98,7 @@ class ExpenseControllerTest {
 	}
 	
 	@Test
-	void shouldReturnBadRequestForDuplicateExpenseWhitSameDescriptionAndDate() throws Exception{
+	public void shouldReturnBadRequestForDuplicateExpenseWhitSameDescriptionAndDate() throws Exception{
 		var expense = new Expense();
 		expense.setId(1l);
 		expense.setDescription("Oil Change");
@@ -117,7 +121,7 @@ class ExpenseControllerTest {
 	}
 	
 	@Test
-	void shouldReturnOkForDetailingExistingExpense() throws Exception{
+	public void shouldReturnOkForDetailingExistingExpense() throws Exception{
 		var expense = new Expense();
 		expense.setId(1l);
 		expense.setDescription("Oil Change");
@@ -133,7 +137,7 @@ class ExpenseControllerTest {
 	}
 	
 	@Test
-	void shouldReturnSearchByYearAndMonty() throws Exception{
+	public void shouldReturnSearchByYearAndMonty() throws Exception{
 		var expense = new Expense();
 		expense.setId(1l);
 		expense.setDescription("Oil Change");
@@ -149,7 +153,7 @@ class ExpenseControllerTest {
 	}
 	
 	@Test
-	void shouldReturnOkWhenDeletingExistingExpense() throws Exception{
+	public void shouldReturnOkWhenDeletingExistingExpense() throws Exception{
 		var expense = new Expense();
 		expense.setId(1l);
 		expense.setDescription("Oil Change");
