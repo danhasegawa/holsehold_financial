@@ -1,9 +1,11 @@
 <h1 align="center"> Household Financial REST API </h1>
 
-![Badge Java](https://img.shields.io/static/v1?label=Java&message=17&color=red&style=for-the-badge&logo=java)
-![Badge Spring](https://img.shields.io/static/v1?label=SpringBoot&message=v2.7.2&color=brightgreen&style=for-the-badge&logo=SpringBoot)
-![Badge JUnit5](https://img.shields.io/static/v1?label=JUnit5&message=v5.8.2&color=green&style=for-the-badge&logo=junit5)
-![Badge Em Desenvolvimento](https://img.shields.io/static/v1?label=Status&message=Completed&color=GREEN&style=for-the-badge)
+![Badge Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
+![Badge Spring](https://img.shields.io/badge/Spring_Boot-F2F4F9?style=for-the-badge&logo=spring-boot)
+![Badge Mysql](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
+![Badge JUnit5](	https://img.shields.io/badge/Junit5-25A162?style=for-the-badge&logo=junit5&logoColor=white)
+![Badge spring security](https://img.shields.io/badge/Spring_Security-6DB33F?style=for-the-badge&logo=Spring-Security&logoColor=white)
+![Badge completed](https://img.shields.io/static/v1?label=Status&message=Completed&color=GREEN&style=for-the-badge)
 
 In this challenge I created a REST API for household budget.
 
