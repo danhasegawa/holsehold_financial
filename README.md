@@ -20,7 +20,7 @@ Automated tests;
 Authentication/authorization service to restrict access to information.
 
 
-## ✔️ Technologies Used
+## ✔️ Technologies
 
 - ``Java ``
 - ``Eclipse IDE``
